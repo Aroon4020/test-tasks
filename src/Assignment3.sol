@@ -63,7 +63,7 @@ contract TokenSwap is ReentrancyGuard, Ownable {
      * @param amountA The amount of Token A to be provided.
      * @param amountB The amount of Token B to be provided.
      */
-    function addLiquidity(uint256 amountA, uint256 amountB) external onlyOwner nonReentrant {
+    function addLiquidity(uint256 amountA, uint256 amountB) external onlyOwner {
         require(amountA > 0 && amountB > 0, "Amount must be greater than zero");
 
         // Transfer tokens from the liquidity provider
@@ -76,7 +76,7 @@ contract TokenSwap is ReentrancyGuard, Ownable {
      * @param amountA The amount of Token A to be withdrawn.
      * @param amountB The amount of Token B to be withdrawn.
      */
-    function removeLiquidity(uint256 amountA, uint256 amountB) external onlyOwner nonReentrant {
+    function removeLiquidity(uint256 amountA, uint256 amountB) external onlyOwner {
 
         // Transfer tokens to the liquidity provider
         tokenA.safeTransfer(msg.sender, amountA);
